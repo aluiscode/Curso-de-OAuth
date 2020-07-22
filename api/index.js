@@ -19,7 +19,7 @@ app.get('/api/auth/verify', (req, res, next) => {
     const decode = jwt.verify(access_token, config.authJwtSecret);
     res.json({'message': 'the access token is valid', 'name': decode.sub})
   } catch (error) {
-    next(e);
+    next(error);
   }
 })
 
