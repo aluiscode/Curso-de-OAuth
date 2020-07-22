@@ -13,6 +13,16 @@ app.post('/api/auth/token', (req, res) => {
   res.status(200).json({access_token: token});
 });
 
+app.get('/api/auth/verify', (req, res, next) => {
+  const { access_token } = req.query;
+  try {
+    const decode = jwt.verify(access_token, config.authJwtSecret);
+    res.json({'message': 'the access token is valid', 'name': decode.sub})
+  } catch (error) {
+    next(e);
+  }
+})
+
 const server = app.listen(5000, () => {
   console.log(`Listening at port http://localhost:${server.address().port}`);
 });
