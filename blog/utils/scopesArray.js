@@ -4,4 +4,4 @@ const scopesArray = [
   "playlist-read-collaborative"
 ];
 
-module.export = scopesArray
+module.exports = scopesArray
