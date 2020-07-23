@@ -1,5 +1,5 @@
 function encodeBasic(username, password){
-  return Buffer.from(`${username}:${password}`).toSting('base64');
+  return Buffer.from(`${username}:${password}`).toString('base64');
 }
 
 module.exports = encodeBasic;
