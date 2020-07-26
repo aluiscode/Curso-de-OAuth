@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <div>
       <Table celled padded>
-        <Table.Header>
+        {/* <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Title</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
@@ -13,7 +13,7 @@ const IndexPage = () => {
             <Table.HeaderCell>Author</Table.HeaderCell>
             <Table.HeaderCell>Actions</Table.HeaderCell>
           </Table.Row>
-        </Table.Header>
+        </Table.Header> */}
 
         <Table.Body>
           <Table.Row>

@@ -1,4 +1,4 @@
-const generateRamdonString = function(length) {
+const generateRandomString = function(length) {
   let randomString = "";
   const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // prettier-ignore
 
@@ -11,4 +11,4 @@ const generateRamdonString = function(length) {
   return randomString;
 };
 
-export default generateRamdonString;
+export default generateRandomString;

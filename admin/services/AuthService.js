@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import generateRandomString from '../utils/generateRandomString';
-import scopes from '../utils/scopesArray';
+import scopesArray from "../utils/scopesArray";
 import getHashParams from '../utils/getHashParams';
 import { config } from '../config/client';
 
@@ -8,21 +8,29 @@ class AuthService {
   constructor(){
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-    this.handlerAuthentication = this.handlerAuthentication.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
 
   login() {
+    console.log('///////////////')
+    console.log(config.spotifyClientId)
+    console.log('///////////////')
+
     const state = generateRandomString(16);
     localStorage.setItem('auth_state', state);
 
     let url = 'https://accounts.spotify.com/authorize';
     url += "?response_type=token";
-    url += "&client_id" + encodeURIComponent(config.spotifyClientId);
+    url += "&client_id=" + encodeURIComponent(config.spotifyClientId);
     url += "&scope=" + encodeURIComponent(scopesArray.join(" "));
     url += "&redirect_uri=" + encodeURIComponent(config.spotifyRedirectUri);
     url += "&state=" + encodeURIComponent(state);
+
+    console.log('///////////////')
+    console.log(url)
+    console.log('///////////////')
 
     window.location.href = url;
   }
@@ -85,7 +93,7 @@ class AuthService {
   }
 
   setProfile(profile) {
-    localStorage.setItem("profile", JSON.stringy(profile));
+    localStorage.setItem("profile", JSON.stringify(profile));
   }
 
   getProfile() {
